@@ -55,16 +55,16 @@ public class LoginRegister : MonoBehaviour
         PlayFabClientAPI.RegisterPlayFabUser(registerRequest,
         result =>
         {
-             Debug.Log(result.PlayFabId);
+            SetDisplayText("Registered as: " + result.PlayFabId, Color.green);
         },
         error =>
         {
-             Debug.Log(error.ErrorMessage);
+            SetDisplayText(error.ErrorMessage, Color.red);
         }
         );
     }
 
-    void SetDisplayText(string text, Color color)
+    public void SetDisplayText(string text, Color color)
     {
         displayText.text = text;
         displayText.color = color;
